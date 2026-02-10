@@ -1,0 +1,26 @@
+# Pi Simulator: mimics a Raspberry Pi on your laptop.
+# Runs a Debian container with Docker-in-Docker.
+# The "external-hdd" volume simulates the USB hard drive.
+
+name: pi-simulator
+
+services:
+  pi:
+    image: docker:27-dind
+    privileged: true
+    hostname: raspberrypi
+    environment:
+      DOCKER_TLS_CERTDIR: ""
+    volumes:
+      - external-hdd:/mnt/hdd
+      - pi-docker-data:/var/lib/docker
+      - ../docker-compose.yml:/home/deploy/docker-compose.yml:ro
+      - ../.env:/home/deploy/.env:ro
+    ports:
+      - "8080:80"       # Immich web UI → http://localhost:8080
+      - "5433:5432"     # PostgreSQL (shifted to avoid conflicts)
+    restart: unless-stopped
+
+volumes:
+  external-hdd:       # Simulates the 4TB USB HDD
+  pi-docker-data:     # Docker storage inside the "Pi"
