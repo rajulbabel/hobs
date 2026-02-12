@@ -19,6 +19,8 @@ services:
     ports:
       - "80:80"         # Immich web UI → http://localhost
       - "5433:5432"     # PostgreSQL (shifted to avoid conflicts)
+      - "53:53/udp"     # DNS (dnsmasq) for hobs.in resolution
+      - "53:53/tcp"
     restart: unless-stopped
 
 volumes:
