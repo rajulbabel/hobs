@@ -34,7 +34,7 @@ export function handleError(error: unknown, localizedMessage: string) {
   try {
     let serverMessage = getServerErrorMessage(error);
     if (serverMessage) {
-      serverMessage = `${String(serverMessage).slice(0, 75)}\n(Immich Server Error)`;
+      serverMessage = `${String(serverMessage).slice(0, 75)}\n(HoBs Server Error)`;
     }
 
     const errorMessage = serverMessage || localizedMessage;

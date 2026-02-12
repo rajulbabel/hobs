@@ -42,7 +42,7 @@
     "authentication_settings_disable_all": "Seguru zaude saioa hasteko modu guztiak desgaitu nahi dituzula? Saioa hastea guztiz desgaitua izango da.",
     "authentication_settings_reenable": "Berriro gaitzeko, erabili <link>Server Command</link>.",
     "background_task_job": "Atzealdeko Lanak",
-    "backup_onboarding_footer": "Immich-en babes kopiei buruzko informazio gehiago nahi baduzu, mesedez irakurri <link>dokumentazioa</link>.",
+    "backup_onboarding_footer": "HoBs-en babes kopiei buruzko informazio gehiago nahi baduzu, mesedez irakurri <link>dokumentazioa</link>.",
     "backup_onboarding_title": "Babes Kopiak",
     "confirm_delete_library": "Seguru zaude {library} ezabatu nahi duzula?",
     "confirm_email_below": "Konfirmatzeko, idatzi \"{email}\" azpian",

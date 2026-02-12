@@ -17,7 +17,7 @@
       <img
         src={immichLogo}
         class="max-w-(--breakpoint-md) mx-auto h-full mb-2 antialiased overflow-hidden"
-        alt="Immich logo"
+        alt="HoBs logo"
       />
       <div
         class="w-full h-[99%] absolute start-0 top-0 backdrop-blur-[200px] bg-transparent dark:bg-immich-dark-bg/20"
