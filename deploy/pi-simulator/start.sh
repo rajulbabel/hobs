@@ -24,7 +24,7 @@ docker compose exec pi sh -c "
 
 echo ""
 echo "=== Pi Simulator is running ==="
-echo "  Immich UI:  http://localhost:8080"
+echo "  Immich UI:  http://localhost"
 echo ""
 echo "To shell into the Pi:  docker compose exec pi sh"
 echo "To view Pi logs:       docker compose exec pi sh -c 'cd /home/deploy && docker compose logs -f'"

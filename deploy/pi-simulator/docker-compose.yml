@@ -17,7 +17,7 @@ services:
       - ../docker-compose.yml:/home/deploy/docker-compose.yml:ro
       - ../.env:/home/deploy/.env:ro
     ports:
-      - "8080:80"       # Immich web UI → http://localhost:8080
+      - "80:80"         # Immich web UI → http://localhost
       - "5433:5432"     # PostgreSQL (shifted to avoid conflicts)
     restart: unless-stopped
 

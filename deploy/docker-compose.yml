@@ -1,5 +1,6 @@
 # Deployment docker-compose: runs on the Pi (or inside the Pi simulator).
 # This pulls pre-built images from ghcr.io — no building happens here.
+# All persistent data is stored on /mnt/hdd (the external HDD).
 
 name: immich-deploy
 
@@ -7,8 +8,7 @@ services:
   immich-server:
     image: ghcr.io/rajulbabel/immich-server:latest
     volumes:
-      - upload-data:/data
-      - /etc/localtime:/etc/localtime:ro
+      - /mnt/hdd/immich/data:/data
     env_file:
       - .env
     ports:
@@ -23,7 +23,7 @@ services:
   immich-machine-learning:
     image: ghcr.io/rajulbabel/immich-machine-learning:latest
     volumes:
-      - model-cache:/cache
+      - /mnt/hdd/immich/model-cache:/cache
     env_file:
       - .env
     restart: always
@@ -31,7 +31,7 @@ services:
       disable: false
 
   redis:
-    image: docker.io/valkey/valkey:9-bookworm
+    image: docker.io/valkey/valkey:9
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
@@ -46,7 +46,7 @@ services:
       POSTGRES_DB: ${DB_DATABASE_NAME}
       POSTGRES_INITDB_ARGS: '--data-checksums'
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - /mnt/hdd/immich/postgres:/var/lib/postgresql/data
     restart: always
     healthcheck:
       disable: false
@@ -61,8 +61,3 @@ services:
       WATCHTOWER_INCLUDE_STOPPED: "true"
       WATCHTOWER_ROLLING_RESTART: "true"
     restart: always
-
-volumes:
-  upload-data:
-  model-cache:
-  db-data:
