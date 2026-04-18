@@ -145,8 +145,6 @@ DTOs → NestJS Swagger generates `immich-openapi-specs.json` → `make open-api
 
 ## Git Config (This Fork)
 
-- **SSH key**: `~/.ssh/id_hobs` (repo-level, not global)
-- **Email**: `babelrajul@gmail.com` (repo-level)
 - **Remote**: `git@github.com:rajulbabel/hobs.git`
 
 ## Deployment Plan
